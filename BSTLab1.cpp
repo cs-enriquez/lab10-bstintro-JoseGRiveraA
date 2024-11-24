@@ -68,12 +68,32 @@ Node* createTree() {
 			// pointer to root Node
 // 	returns: true or false depending on if the value is found
 // You should write this function recursively! What is the base case? What is the general case?
-bool searchTree(int target, Node* root) {
+bool searchTree(int target, Node* root)
+{
 	// Base cases
-	return false;
+	if (root == nullptr)
+	{
+		return false;
+	}
+	
+	if (root -> key == target)
+	{
+		return true;
+	}
+
+	
 
 	// General case
-	return false;
+	if (searchTree(target, root -> left) == true || searchTree(target, root -> right) == true)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+
+	
 	
 }
 
