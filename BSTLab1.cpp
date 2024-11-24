@@ -121,8 +121,29 @@ int treeSize(Node* root) {
 // BONUS! Write a function that will determine the height of the tree
 int treeHeight(Node* root) {
 	// base case
-	return -1;
+	int height = -1;
+	
+	if (root == nullptr)
+	{
+		return height;
+	}
 
 	// General case
+	height = 1;
+	int heightL, heightR;
+
+	heightL = treeHeight(root -> left);
+	heightR = treeHeight(root -> right);
+
+	if(heightR >= heightL)
+	{
+		return height + heightR;
+	}
+
+	if (heightR < heightL)
+	{
+		return height + heightL;
+	}
+
 	return -1;
 }
